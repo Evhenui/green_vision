@@ -1,5 +1,8 @@
 <template>
-  <section class="contacts">
+  <section 
+    class="contacts"
+    :class="{'no-shadow': noShadow}"
+  >
     <div class="contacts__wrapper">
       <div class="contacts__info">
         <h1 class="contacts__title">СВЯЖИТЕСЬ С НАМИ ПРЯМО СЕЙЧАС</h1>
@@ -12,13 +15,32 @@
       <div class="contacts__inputs">
         <form class="contacts__form">
           <div class="contacts__inputs-wrapper">
-            <InputServices 
-              class="contacts__input" 
-              v-for="(item,index) in inputValues"
-              :key="index"
-              :placeholder="item.placeholder"
-              :type="item.type"
-            />
+            <div class="contacts__inputs-section">
+              <InputServices 
+                class="contacts__input" 
+                :placeholder="'Ваше имя'"
+                :type="'text'"
+              />
+
+              <InputServices 
+                class="contacts__input" 
+                :placeholder="'Ваш e-mail'"
+                :type="'text'"
+              />
+            </div>
+            <div class="contacts__inputs-section">
+              <InputServices 
+                class="contacts__input" 
+                :placeholder="'Ваш e-mail'"
+                :type="'phone'"
+              />
+
+              <InputServices 
+                class="contacts__input" 
+                :placeholder="'Город'"
+                :type="'text'"
+              />
+            </div>
           </div>
           <ButtonGreen />
         </form>
@@ -37,10 +59,20 @@ const inputValues = [
   { placeholder: 'Ваш e-mail', type: 'text' },
   { placeholder: 'Город', type: 'text' },
 ]
+
+defineProps({
+  noShadow: { type: Boolean, required: false},
+});
 </script>
 
 <style lang="scss" scoped>
 .contacts {
+  &.no-shadow {
+    .contacts__wrapper {
+      box-shadow: none;
+    }
+  }
+
   &__wrapper {
     @include flex-container(row, space-between);
 
@@ -52,8 +84,8 @@ const inputValues = [
     padding: 136px 32px 96px 32px;
     gap: 24px;
 
-    @include bigMobile {
-      @include flex-container(column, flex-start, center);
+    @include smallestScreen {
+      @include flex-container(column, flex-start, flex-start);
 
       padding: 24px 16px;
       gap: 24px;
@@ -93,6 +125,7 @@ const inputValues = [
   &__inputs {
     max-width: 678px;
     width: 100%;
+    flex: 1 0 678px;
   }
 
   &__form {
@@ -123,6 +156,19 @@ const inputValues = [
     @include bigMobile {
       @include flex-container(column, flex-start, flex-start);
 
+      gap: 24px;
+    }
+  }
+
+  &__inputs-section {
+    max-width: 327px;
+    width: 100%;
+
+    @include flex-container(column, flex-start);
+
+    gap: 48px;
+
+    @include bigMobile {
       gap: 24px;
     }
   }

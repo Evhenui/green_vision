@@ -1,16 +1,16 @@
 <template>
   <section 
-    class="info-offre"
+    class="info-offer"
     :class="{active : button}"
   >
-    <div class="info-offre__wrapper">
-      <div class="info-offre__image-wrapper">
+    <div class="info-offer__wrapper">
+      <div class="info-offer__image-wrapper">
         <img :src="`/_nuxt/public/img/${img}-info-offer.png`" :alt="img" />
       </div>
-      <div class="info-offre__main-info">
-        <h1 class="info-offre__title">{{ title }}</h1>
-        <p class="info-offre__subtitle">{{ subtitle }}</p>
-        <ButtonGreen class="info-offre__button" />
+      <div class="info-offer__main-info">
+        <h1 class="info-offer__title">{{ title }}</h1>
+        <p class="info-offer__subtitle">{{ subtitle }}</p>
+        <ButtonGreen class="info-offer__button" />
       </div>
     </div>
   </section>
@@ -18,6 +18,7 @@
 
 <script setup>
 import ButtonGreen from '~~/components/common/buttons/ButtonGreen.vue'
+
 defineProps({
   img: { type: String, required: true },
   title: { type: String, required: true },
@@ -27,22 +28,32 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-.info-offre {
+.info-offer {
   background: white;
 
   border-radius: 16px;
 
   &.active {
-    .info-offre__button {
+    .info-offer__button {
       display: block;
+
+      @include bigMobile { 
+        width: max-content;
+
+        margin: auto;
+      }
     }
 
-    .info-offre__title {
+    .info-offer__title {
       text-transform: none;
     }
 
-    .info-offre__subtitle {
+    .info-offer__subtitle {
       margin-bottom: 40px;
+
+      @include bigMobile { 
+        margin-bottom: 32px;
+      }
     }
   }
 
@@ -51,6 +62,13 @@ defineProps({
 
     padding: 48px;
     gap: 96px;
+
+    @include bigMobile { 
+      @include flex-container(column, center, center);
+
+      padding: 24px 16px;
+      gap: 32px;
+    }
   }
 
   &__image-wrapper {
@@ -66,6 +84,14 @@ defineProps({
     text-transform: uppercase;
     letter-spacing: 0.02em;
     color: #009B3E;
+    
+    margin-bottom: 40px;
+
+    @include bigMobile { 
+      @include font(18, 22, 600);
+
+      margin-bottom: 16px;
+    }
   }
 
   &__subtitle {
@@ -73,7 +99,9 @@ defineProps({
     letter-spacing: 0.02em;
     color: #1F1F1F;
 
-    margin-bottom: 56px;
+    @include bigMobile { 
+      @include font(16, 22, 400);
+    }
   }
 
   &__button {

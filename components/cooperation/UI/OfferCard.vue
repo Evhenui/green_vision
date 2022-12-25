@@ -12,16 +12,12 @@
 <script setup>
 defineProps({
   title: { type: String, required: true },
-  img: { type: String, required: true },
+  img: { type: String, required: true }
 });
 </script>
 
 <style lang="scss" scoped>
 .offer-card {
-  --gap: 16px;
-
-  @include set-item-count-in-row(4);
-
   background-color: white;
 
   border-radius: 16px;

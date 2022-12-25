@@ -41,6 +41,7 @@ const toggleLanguage = (item) => {
 <style lang="scss" scoped>
 .header {
   @include flex-container(row, flex-start, center);
+  flex-wrap: wrap;
 
   gap: 16px;
 }

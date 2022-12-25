@@ -1,5 +1,8 @@
 <template>
-  <section class="promt">
+  <section 
+    class="promt"
+    :class="{'no-shadow': noShadow}"
+  >
     <div class="promt__wrapper">
       <div class="promt__image">
         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,11 +19,29 @@
 </template>
 
 <script setup>
-
+defineProps({
+  noShadow: { type: Boolean, required: false},
+});
 </script>
 
 <style lang="scss" scoped>
 .promt {
+  &.no-shadow {
+    .promt__wrapper {
+      box-shadow: none;
+    }
+
+    .promt__title {
+      max-width: 800px;
+
+      text-align: left;
+
+      @include bigMobile { 
+        max-width: 100%;
+      }
+    }
+  }
+
   &__wrapper {
     @include flex-container(row, center, center);
 

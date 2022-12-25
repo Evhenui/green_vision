@@ -1,7 +1,10 @@
 <template>
-  <section 
+  <section
     class="usefull-info"
-    :class="{left: leftDirecion}"
+    :class="[
+      { 'direction-left': leftDirecion },
+      { 'direction-right': !leftDirecion },
+    ]"
   >
     <div class="usefull-info__wrapper">
       <div class="usefull-info__image-wrapper">
@@ -27,11 +30,47 @@ defineProps({
 <style lang="scss" scoped>
 .usefull-info {
   position: relative;
-  &.left {
+  &.direction-left {
     .usefull-info__wrapper {
       @include flex-container(row-reverse, center, center);
 
       border-radius: 0px 250px 250px 0px;
+
+      @include bigMobile { 
+        @include flex-container(column, center, center);
+
+        border-radius: 16px;
+
+        gap: 24px;
+      }
+
+      &::after {
+        right: 0;
+
+        background-color: var(--color-sky-lightest);
+      }
+
+      &::before {
+        left: 0;
+
+        background-color: white;
+      }
+    }
+  }
+
+  &.direction-right {
+    .usefull-info__wrapper {
+      &::after {
+        left: 0;
+
+        background-color: var(--color-sky-lightest);
+      }
+
+      &::before {
+        right: 0;
+
+        background-color: white;
+      }
     }
   }
 
@@ -48,6 +87,12 @@ defineProps({
     margin: auto;
     padding: 48px 0 48px 0;
 
+    @include bigMobile { 
+      @include flex-container(column, center, center);
+
+      border-radius: 16px;
+    }
+
     &::after,
     &::before {
       content: "";
@@ -58,22 +103,11 @@ defineProps({
       position: absolute;
       top: 0;
       z-index: -1;
+
+      @include bigMobile { 
+        display: none;
+      }
     }
-
-    &::after {
-      right: 0;
-
-      background-color: var(--color-sky-lightest);
-    }
-
-    &::before {
-      left: 0;
-      
-      background-color: white;
-    }
-  }
-
-  &__image-wrapper {
   }
 
   &__main-info {
@@ -88,13 +122,21 @@ defineProps({
   &__title {
     @include font(30, 39, 600);
     letter-spacing: 0.02em;
-    color: #009B3E;
+    color: #009b3e;
+
+    @include bigMobile { 
+      @include font(18, 22, 600);
+    }
   }
 
   &__subtitle {
     @include font(20, 28, 400);
     letter-spacing: 0.02em;
-    color: #1F1F1F;
+    color: #1f1f1f;
+
+    @include bigMobile { 
+      @include font(16, 22, 400);
+    }
   }
 }
 </style>

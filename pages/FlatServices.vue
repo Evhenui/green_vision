@@ -168,7 +168,7 @@ import CheckItem from "~~/components/services/UI/CheckItem.vue";
 import Offers from "~~/components/services/sections/Offers.vue";
 import Promt from "~~/components/common/sections/Promt.vue";
 import SchemeLocation from "~~/components/services/sections/SchemeLocation.vue";
-import ContactUs from "~~/components/services/sections/ContactUs.vue";
+import ContactUs from "~~/components/common/sections/ContactUs.vue";
 import CardLocation from "~~/components/services/UI/CardLocation.vue";
 
 const capabilities = [
@@ -216,7 +216,6 @@ const offers = {
   }
 
 }
-
 
 </script>
 

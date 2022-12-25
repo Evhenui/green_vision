@@ -1,5 +1,5 @@
 <template>
-  <div class="suggestions" :class="{ left: directionLeft }">
+  <div class="suggestions" :class="[{ left: directionLeft }, {link : link}]">
     <div class="suggestions__wrapper">
       <div class="suggestions__image">
         <img :src="`/_nuxt/public/img/${img}.png`" :alt="img" />
@@ -7,6 +7,11 @@
       <div class="suggestions__main-info">
         <h1 class="suggestions__title">{{ title }}</h1>
         <p class="suggestions__subtitle">{{ subtitle }}</p>
+        <a 
+          href="#" 
+          class="suggestions__link"
+          v-if="link"
+        >{{ link }}</a>
       </div>
     </div>
   </div>
@@ -18,6 +23,7 @@ defineProps({
   title: { type: String, required: true },
   subtitle: { type: String, required: true },
   directionLeft: { type: Boolean, required: false },
+  link: { type: String, required: false },
 });
 </script>
 
@@ -37,8 +43,18 @@ defineProps({
     }
   }
 
+  &.link {
+
+    .suggestions__main-info {
+      max-width: 495px;
+    }
+    .suggestions__main-info {
+      gap: 24px;
+    }
+  }
+
   &__wrapper {
-    @include flex-container(row, flex-start, center);
+    @include flex-container(row, space-between, center);
 
     padding: 32px;
     gap: 24px;
@@ -82,6 +98,12 @@ defineProps({
     @include bigMobile {
       @include font(16, 22, 400);
     }
+  }
+
+  &__link {
+    @include font(20, 28, 400);
+    letter-spacing: 0.02em;
+    color: #009b3e;
   }
 }
 </style>
