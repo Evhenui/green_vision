@@ -46,9 +46,9 @@ const cards = [
   }
 
   &__card {
-  --gap: 16px;
+    --gap: 16px;
 
-  @include set-item-count-in-row(3);
+    @include set-item-count-in-row(3);
 
     @include bigMobile {
       @include set-item-count-in-row(1);

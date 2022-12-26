@@ -83,7 +83,7 @@ defineProps({
       }
     }
 
-    .usefull-info__image-wrapper  {
+    .usefull-info__image-wrapper {
       flex: 1 0 454px;
 
       @include bigMobile {

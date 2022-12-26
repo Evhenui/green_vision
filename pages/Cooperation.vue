@@ -24,7 +24,7 @@
 <script setup>
 import Suggestions from "~~/components/cooperation/sections/Suggestions.vue";
 import TypeCooperation from "~~/components/cooperation/sections/TypeCooperation.vue";
-import CallBackInfo from "~~/components/cooperation/sections/CallBackInfo.vue";
+import CallBackInfo from "~~/components/common/sections/CallBackInfo.vue";
 
 const invitatCooperate = {
   img: "handshake-square",

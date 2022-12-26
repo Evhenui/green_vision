@@ -18,11 +18,11 @@ defineProps({
 
 <style lang="scss" scoped>
 .callback {
-  border-radius: 16px;
-  background-color: white;
-
   &__wrapper {
     @include flex-container(row, center, center);
+
+    border-radius: 16px;
+    background-color: white;
 
     padding: 32px;
     gap: 62px;
@@ -45,6 +45,8 @@ defineProps({
   }
 
   &__button {
+    width: max-content;
+    
     white-space: nowrap;
   }
 }

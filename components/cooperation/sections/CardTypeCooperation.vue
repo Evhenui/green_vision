@@ -1,7 +1,11 @@
 <template>
   <div class="card-types">
     <div class="card-types__image-wrapper">
-      <img class="card-types__image" :src="`/_nuxt/public/img/${img}-card.png`" :alt="img" />
+      <img
+        class="card-types__image"
+        :src="`/_nuxt/public/img/${img}-card.png`"
+        :alt="img"
+      />
     </div>
     <div class="card-types__body">
       <p class="card-types__title">{{ title }}</p>

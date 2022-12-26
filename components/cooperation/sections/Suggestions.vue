@@ -1,5 +1,5 @@
 <template>
-  <div class="suggestions" :class="[{ left: directionLeft }, {link : link}]">
+  <div class="suggestions" :class="[{ left: directionLeft }, { link: link }]">
     <div class="suggestions__wrapper">
       <div class="suggestions__image">
         <img :src="`/_nuxt/public/img/${img}.png`" :alt="img" />
@@ -7,11 +7,7 @@
       <div class="suggestions__main-info">
         <h1 class="suggestions__title">{{ title }}</h1>
         <p class="suggestions__subtitle">{{ subtitle }}</p>
-        <a 
-          href="#" 
-          class="suggestions__link"
-          v-if="link"
-        >{{ link }}</a>
+        <a href="#" class="suggestions__link" v-if="link">{{ link }}</a>
       </div>
     </div>
   </div>

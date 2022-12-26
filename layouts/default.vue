@@ -19,6 +19,8 @@
       <NuxtLink to="/Services">Services</NuxtLink> 
       <NuxtLink to="/Cooperation">Cooperation</NuxtLink>
       <NuxtLink to="/Begginers">Begginers</NuxtLink>
+      <NuxtLink to="/Wholesale">Wholesale</NuxtLink>
+      <NuxtLink to="/Installers">Installers</NuxtLink>
     </header>
 
     <div>

@@ -12,7 +12,8 @@
 <script setup>
 defineProps({
   title: { type: String, required: true },
-  img: { type: String, required: true }
+  img: { type: String, required: true },
+  short: { type: Boolean, required: false },
 });
 </script>
 
@@ -22,22 +23,22 @@ defineProps({
 
   border-radius: 16px;
 
-    &__wrapper {
-      @include flex-container(column, center, center);
+  &__wrapper {
+    @include flex-container(column, center, center);
 
-      gap: 64px;
-      padding: 32px;
-    }
+    gap: 64px;
+    padding: 32px;
+  }
 
-    &__image-wrapper {
-      font-size: 0;
-    }
+  &__image-wrapper {
+    font-size: 0;
+  }
 
-    &__title {
-      @include font(18, 25, 500);
-      color: #1F1F1F;
-      letter-spacing: 0.02em;
-      text-align: center;
-    }
+  &__title {
+    @include font(18, 25, 500);
+    color: #1f1f1f;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
 }
 </style>
