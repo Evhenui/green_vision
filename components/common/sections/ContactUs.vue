@@ -42,7 +42,7 @@
               />
             </div>
           </div>
-          <ButtonGreen />
+          <ButtonGreen class="contacts__button" />
         </form>
       </div>
     </div>
@@ -126,6 +126,10 @@ defineProps({
     max-width: 678px;
     width: 100%;
     flex: 1 0 678px;
+
+    @include bigMobile {
+      flex: auto;
+    }
   }
 
   &__form {
@@ -168,8 +172,20 @@ defineProps({
 
     gap: 48px;
 
+    @include smallestScreen {
+      max-width: 100%;
+    }
+
     @include bigMobile {
       gap: 24px;
+    }
+  }
+
+  &__button {
+    @include smallestScreen {
+      max-width: 248px;
+
+      align-self: center;
     }
   }
 }

@@ -31,12 +31,17 @@ defineProps({
 .usefull-info {
   position: relative;
   &.direction-left {
+    padding-right: 16px;
+
+    @include bigMobile {
+      padding: 0 16px;
+    }
     .usefull-info__wrapper {
-      @include flex-container(row-reverse, center, center);
+      @include flex-container(row-reverse, space-between, center);
 
       border-radius: 0px 250px 250px 0px;
 
-      @include bigMobile { 
+      @include bigMobile {
         @include flex-container(column, center, center);
 
         border-radius: 16px;
@@ -59,6 +64,11 @@ defineProps({
   }
 
   &.direction-right {
+    padding-left: 16px;
+
+    @include bigMobile {
+      padding: 0 16px;
+    }
     .usefull-info__wrapper {
       &::after {
         left: 0;
@@ -72,12 +82,20 @@ defineProps({
         background-color: white;
       }
     }
+
+    .usefull-info__image-wrapper  {
+      flex: 1 0 454px;
+
+      @include bigMobile {
+        flex: auto;
+      }
+    }
   }
 
   &__wrapper {
     @extend %width-main;
 
-    @include flex-container(row, center, center);
+    @include flex-container(row, space-between, center);
 
     background-color: white;
 
@@ -85,12 +103,15 @@ defineProps({
 
     gap: 96px;
     margin: auto;
-    padding: 48px 0 48px 0;
+    padding: 48px 16px;
 
-    @include bigMobile { 
+    @include bigMobile {
       @include flex-container(column, center, center);
 
       border-radius: 16px;
+
+      gap: 24px;
+      padding: 24px 16px;
     }
 
     &::after,
@@ -104,9 +125,17 @@ defineProps({
       top: 0;
       z-index: -1;
 
-      @include bigMobile { 
+      @include bigMobile {
         display: none;
       }
+    }
+  }
+
+  &__image-wrapper {
+    flex: 1 0 537px;
+
+    @include bigMobile {
+      flex: auto;
     }
   }
 
@@ -124,7 +153,7 @@ defineProps({
     letter-spacing: 0.02em;
     color: #009b3e;
 
-    @include bigMobile { 
+    @include bigMobile {
       @include font(18, 22, 600);
     }
   }
@@ -134,7 +163,7 @@ defineProps({
     letter-spacing: 0.02em;
     color: #1f1f1f;
 
-    @include bigMobile { 
+    @include bigMobile {
       @include font(16, 22, 400);
     }
   }

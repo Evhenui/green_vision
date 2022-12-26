@@ -83,6 +83,10 @@ defineProps({
 
     padding: 16px;
 
+    @include smallestScreen {
+      max-width: 100%;
+    }
+
     &:hover {
       border-color: rgba(0, 0, 0, 0.87);
     }

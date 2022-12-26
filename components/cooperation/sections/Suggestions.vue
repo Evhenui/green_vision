@@ -29,10 +29,6 @@ defineProps({
 
 <style lang="scss" scoped>
 .suggestions {
-  border-radius: 16px;
-
-  background-color: white;
-
   &.left {
     .suggestions__wrapper {
       @include flex-container(row-reverse, flex-start, center);
@@ -44,17 +40,23 @@ defineProps({
   }
 
   &.link {
-
     .suggestions__main-info {
       max-width: 495px;
-    }
-    .suggestions__main-info {
+
       gap: 24px;
+
+      @include bigMobile {
+        gap: 16px;
+      }
     }
   }
 
   &__wrapper {
     @include flex-container(row, space-between, center);
+
+    border-radius: 16px;
+
+    background-color: white;
 
     padding: 32px;
     gap: 24px;
@@ -63,7 +65,6 @@ defineProps({
       @include flex-container(column, flex-start, flex-start);
 
       padding: 16px;
-      gap: 16px;
     }
   }
 
@@ -104,6 +105,10 @@ defineProps({
     @include font(20, 28, 400);
     letter-spacing: 0.02em;
     color: #009b3e;
+
+    @include bigMobile {
+      @include font(16, 22, 400);
+    }
   }
 }
 </style>

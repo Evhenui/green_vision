@@ -153,6 +153,7 @@ const suggestions = {
 <style lang="scss" scoped>
 .begginers {
   &__wrapper {
+    padding: 64px 0 136px 0; 
   }
 
   &__promt,
@@ -179,7 +180,6 @@ const suggestions = {
     margin-bottom: 64px;
 
     @include bigMobile { 
-        padding: 0 16px;
         margin-bottom: 32px;
 
         &.professional {

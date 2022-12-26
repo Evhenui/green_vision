@@ -29,10 +29,6 @@ defineProps({
 
 <style lang="scss" scoped>
 .info-offer {
-  background: white;
-
-  border-radius: 16px;
-
   &.active {
     .info-offer__button {
       display: block;
@@ -59,6 +55,10 @@ defineProps({
 
   &__wrapper {
     @include flex-container(row, flex-start, center);
+
+    background: white;
+
+    border-radius: 16px;
 
     padding: 48px;
     gap: 96px;
